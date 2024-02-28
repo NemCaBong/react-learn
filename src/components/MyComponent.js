@@ -19,10 +19,10 @@ class MyComponent extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <AddUserInfo handleAddNewUser={this.handleAddNewUser} />
         <DisplayInfo listUsers={this.state.listUsers} />
-      </div>
+      </>
     );
   }
 }
