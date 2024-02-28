@@ -17,6 +17,17 @@ class MyComponent extends React.Component {
   handleOnMoveOver = (event) => {
     console.log(event.pageX);
   };
+
+  handleOnChangeInput = (event) => {
+    this.setState({
+      name: event.target.value,
+    });
+    console.log(event.target.value);
+  };
+  handleOnSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.state);
+  };
   render() {
     return (
       <div>
@@ -26,9 +37,19 @@ class MyComponent extends React.Component {
         <p>
           This is the {Math.round(Math.random() * 10)} times i have written JSX
         </p>
-        <button onMouseOver={this.handleOnMoveOver} onClick={this.handleClick}>
-          Click me
-        </button>
+        <form
+          onSubmit={(event) => {
+            this.handleOnSubmit(event);
+          }}
+        >
+          <input
+            type="text"
+            onChange={(event) => {
+              this.handleOnChangeInput(event);
+            }}
+          />
+          <button>Click me</button>
+        </form>
       </div>
     );
   }
