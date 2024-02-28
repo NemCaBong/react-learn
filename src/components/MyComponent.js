@@ -7,6 +7,13 @@ class MyComponent extends React.Component {
     age: 21,
     address: "Hà Nội",
   };
+  handleClick = (event) => {
+    console.log(event.target);
+  };
+
+  handleOnMoveOver = (event) => {
+    console.log(event.pageX);
+  };
   render() {
     return (
       <div>
@@ -16,6 +23,9 @@ class MyComponent extends React.Component {
         <p>
           This is the {Math.round(Math.random() * 10)} times i have written JSX
         </p>
+        <button onMouseOver={this.handleOnMoveOver} onClick={this.handleClick}>
+          Click me
+        </button>
       </div>
     );
   }
