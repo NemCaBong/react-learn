@@ -8,7 +8,10 @@ class MyComponent extends React.Component {
     address: "Hà Nội",
   };
   handleClick = (event) => {
-    console.log(event.target);
+    this.setState({
+      name: "Hoàng đẹp trai",
+      age: Math.floor(Math.random() * 100) + 1,
+    });
   };
 
   handleOnMoveOver = (event) => {
