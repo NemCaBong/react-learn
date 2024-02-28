@@ -14,8 +14,6 @@ class DisplayInfo extends React.Component {
     return (
       <>
         <div>
-          <br />
-          <br />
           <span
             onClick={() => {
               this.handleShowHide();

@@ -1,9 +1,9 @@
 import React from "react";
 
-class UserInfo extends React.Component {
+class AddUserInfo extends React.Component {
   state = {
-    name: "Hoàng",
-    age: 21,
+    name: "",
+    age: "",
     address: "Hà Nội",
   };
 
@@ -21,6 +21,15 @@ class UserInfo extends React.Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault();
+    // truy cập vào props truyền từ component cha
+    // mà fire handleAddNewUser
+    this.props.handleAddNewUser({
+      // thêm "-random" để tạo ra id "ngẫu nhiên
+      // không trùng với id đã có sẵn trước đó
+      id: Math.floor(Math.random() * 100 + 1) + "-random",
+      name: this.state.name,
+      age: this.state.age,
+    });
   };
 
   render() {
@@ -29,9 +38,6 @@ class UserInfo extends React.Component {
         <h1>Hello, I'm {this.state.name}</h1>
         <p>I'm {this.state.age} years old</p>
         <p>I'm from {this.state.address}</p>
-        <p>
-          This is the {Math.round(Math.random() * 10)} times i have written JSX
-        </p>
         <form
           onSubmit={(event) => {
             this.handleOnSubmit(event);
@@ -59,4 +65,4 @@ class UserInfo extends React.Component {
     );
   }
 }
-export default UserInfo;
+export default AddUserInfo;
