@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./DisplayInfo.scss";
 
 // class DisplayInfo extends React.Component {
@@ -39,9 +39,27 @@ import "./DisplayInfo.scss";
 
 const DisplayInfo = (props) => {
   const { listUsers } = props;
+  // Chúng ta dùng const để cho biết rằng biến chỉ có thể đc thay đổi
+  // thông qua biến setState kia mà thôi
+  const [isShowHideListUser, setIsShowHideListUser] = useState(true);
+  // func
+
+  const handleShowHide = () => {
+    setIsShowHideListUser(!isShowHideListUser);
+  };
+
   return (
     <div className="display-info-container">
-      {true && (
+      <div>
+        <span
+          onClick={() => {
+            handleShowHide();
+          }}
+        >
+          {isShowHideListUser ? "Hide" : "Show"} list user
+        </span>
+      </div>
+      {isShowHideListUser && (
         <>
           {listUsers.map((user) => {
             return (
