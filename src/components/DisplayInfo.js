@@ -39,10 +39,7 @@ import "./DisplayInfo.scss";
 
 const DisplayInfo = (props) => {
   const { listUsers } = props;
-  // Chúng ta dùng const để cho biết rằng biến chỉ có thể đc thay đổi
-  // thông qua biến setState kia mà thôi
   const [isShowHideListUser, setIsShowHideListUser] = useState(true);
-  // func
 
   const handleShowHide = () => {
     setIsShowHideListUser(!isShowHideListUser);
